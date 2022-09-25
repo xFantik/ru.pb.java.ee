@@ -16,9 +16,6 @@ public class MainServlet implements Servlet {
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException { //каждый раз, когда идет обращение к сервлету
-
-
-        System.out.println("asdasdsad");
         this.servletConfig = servletConfig;
     }
 
@@ -30,8 +27,9 @@ public class MainServlet implements Servlet {
     @Override  //основной метод, занимающийся обработкой запросов
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
         logger.info("new request");
-        res.getWriter().println("Hello from Servlet");
+        res.getWriter().println("<H1>Hello from Servlet</H1>");
         logger.info("it's worked");
+
 
     }
 
@@ -42,6 +40,7 @@ public class MainServlet implements Servlet {
 
     @Override
     public void destroy() {
+        logger.info("Servlet is destroyed");
 
     }
 }
